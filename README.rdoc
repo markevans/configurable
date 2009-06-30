@@ -1,7 +1,51 @@
-= configurable
+Configurable
+-----------
 
-Description goes here.
+This is just a simple module which provides an object with a nice API for configuring it.
 
-== Copyright
+The best explanation is with an example.
+Here we configure the `Car` class.
 
+First declare which attributes we want to be configurable.
+
+    class Car
+    
+      extend Configurable
+      
+      configurable_attr :colour          # defaults to nil
+      configurable_attr :top_speed, 216  # defaults to 216
+
+      # ...other stuff...
+
+    end
+
+Then we can configure them as we need
+
+    Car.configure do |c|
+      c.colour = 'red'
+    end
+
+Note that we can NOT configure the Car by just saying `Car.colour = 'red'`, the only way is via the `configure` method.
+
+We can see what the configuration is at any time like so:
+
+    Car.configuration   # {:colour => 'red', :top_speed => 216}
+
+
+Why not just use attr_accessors?
+------------------------------
+It's more of a conceptual win really. By limiting the configuration of these attributes to the `configure` method, the user knows that they are dealing with the configuration of the object.
+Also we are able to view the configuration with `Car.configuration` because we've kept them separate from other accessor methods.
+
+Why not just use a `Car.config` hash?
+-------------------------------------
+Because after configuring an object, the rest of the code shouldn't care whether an attribute had to be configured or not (whereas it would using `Car.config[:colour]`).
+This way we can decide later that an attribute should actually be configurable, and this is transparent to the rest of the code.
+
+Install
+-------
+Usual way for github gems.
+
+Copyright
+----------
 Copyright (c) 2009 Mark Evans. See LICENSE for details.
