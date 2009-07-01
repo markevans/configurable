@@ -1,4 +1,4 @@
-===Configurable
+=Configurable
 
 This is just a simple module which provides an object with a nice API for configuring it.
 
@@ -31,20 +31,16 @@ We can see what the configuration is at any time like so:
     Car.configuration   # {:colour => 'red', :top_speed => 216}
 
 
-Why not just use attr_accessors?
-------------------------------
+==Why not just use attr_accessors?
 It's more of a conceptual win really. By limiting the configuration of these attributes to the `configure` method, the user knows that they are dealing with the configuration of the object.
 Also we are able to view the configuration with `Car.configuration` because we've kept them separate from other accessor methods.
 
-Why not just use a `Car.config` hash?
--------------------------------------
+==Why not just use a `Car.config` hash?
 Because after configuring an object, the rest of the code shouldn't care whether an attribute had to be configured or not (whereas it would using `Car.config[:colour]`).
 This way we can decide later that an attribute should actually be configurable, and this is transparent to the rest of the code.
 
-Install
--------
+=Install
 Usual way for github gems.
 
-Copyright
-----------
+=Copyright
 Copyright (c) 2009 Mark Evans. See LICENSE for details.
