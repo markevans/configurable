@@ -1,5 +1,4 @@
-Configurable
------------
+===Configurable
 
 This is just a simple module which provides an object with a nice API for configuring it.
 
