@@ -10,15 +10,16 @@ Gem::Specification.new do |s|
   s.email = %q{mark@new-bamboo.co.uk}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+     "README.markdown"
   ]
   s.files = [
     ".document",
      ".gitignore",
      "LICENSE",
-     "README.rdoc",
+     "README.markdown",
      "Rakefile",
      "VERSION",
+     "configurable.gemspec",
      "lib/configurable.rb",
      "spec/configurable_spec.rb"
   ]
